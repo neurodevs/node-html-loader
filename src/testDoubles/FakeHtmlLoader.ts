@@ -26,4 +26,10 @@ export default class FakeHtmlLoader implements HtmlLoader {
     public get fakedResponse() {
         return FakeHtmlLoader.fakedResponse
     }
+
+    public static resetTestDouble(fakedResponse?: string) {
+        FakeHtmlLoader.numCallsToConstructor = 0
+        FakeHtmlLoader.callsToLoad = []
+        FakeHtmlLoader.fakedResponse = fakedResponse ?? generateId()
+    }
 }
